@@ -1,0 +1,1 @@
+Note that if d is the denominator, the numerator of the highest fraction lower than 3/7 is floor(3d/7). Now note that 3/7-floor(3d/7)/d = (3d mod 7)/7d. Since we want this minimised, we need 3d = 1 mod 7, so the highest possible d is 999997. Now, floor(3*999997/7) is coprime to 999997, so this is our answer.

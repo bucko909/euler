@@ -1,0 +1,9 @@
+Inspection. Assume each character appears at most once.
+
+Now there's a 319 at the start.
+Note that the only thing left of a 3 is a 7, so the first two chars are 73.
+Nothing lies between a 3 and a 1, so we have 731.
+6, 2 and 8 appear between 1 and 9.
+Nothing appears between 1 and 6; between 6 and 2; and between 2 and 8.
+The only thing right of a 9 is 0, so the last 2 are 90.
+Thus, the passphrase must be 73162890.
