@@ -10,22 +10,25 @@
 #
 # floor(n/k) = floor((n-(n%k))/k) = (n-n%k)/k.
 #
+# Want floor(200000/p^l) - sum x in (i,j,k) floor(i/p^l) for each l.
+#
+# So (200000-i-j-k)/p^l - (200000%p^l - i%p^l - j%p^l - k%p^l)/p^l
+#  = (i%p^l + j%p^l + k%p^l - 200000%p^l)/p^l
+#
 # So we have #p in 200000!/i!j!k! is sum (i%p^l+j%p^l+k%p^l-200000%p^l)/p^l
 # Numerator is 0 if p^l >= 200000.
 #
-# Keeping l constant (q=p^l, n=200000), see that we get either 0, 1 or 2
-# (naive max value of numerator is 3q-3, and numerator is multiple of q, hence
-# range).
+# Keeping l constant (q=p^l, n=200000), see that we get between 0 and 2 for
+# each summand. (Can't have <0 multiples; 3(q-1) < 3q)
 #
-# i%q+j%q <= n%q means the %q is basically null - get 0.
-# i%q+j%p <= n%q + q means the only possible answer is 1 (it's impossible to
-# get 2q on numerator)
-# i%q+j%q > n%q + q means the only possible answer is 2
+#           i%q+j%q <= n%q      gives 0 (sum can't get to q)
+#     n%q < i%q+j%q <= n%q + q  gives 1 (sum can't be 0, sum can't reach 2q)
+# q + n%q < i%q+j%q             gives 2 (since sum >q)
 #
 # Thus the pyramid floor, if arranged into a half-square, is made of q*q blocks
 # with 0 in top left for n%q+1 units, and 2 in bottom right for q-n%q-2 units.
 #
-# That is, for 5, one of:
+# That is, for q=5^1, one of:
 #
 # n%5=0     1     2     3     4
 #
