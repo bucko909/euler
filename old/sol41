@@ -1,0 +1,1 @@
+primes 1000000|perl -ne 'exit if length($_)>8;%s=();$s{$_}++ for split//,$_;$n=1;for(1..length($_)-1){if($s{$_}!=1){$n=0;last}}print if$n'

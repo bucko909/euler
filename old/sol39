@@ -1,0 +1,1 @@
+perl -e 'for$l(map{2*$_}(1..500)){$d=0;for$a(int($l*(sqrt(2)-1))..int($l/2)){for$b(int(($l-$a)/sqrt(2))..$a){$c=$l-$a-$b;next if$c<=0;if($a**2==$b**2+$c**2){$d++}}}printf("%04i %i\n",$d,$l)}'|sort|tail -n 1|cut -d' ' -f2

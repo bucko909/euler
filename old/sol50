@@ -1,0 +1,1 @@
+perl -e '@p=(2,3,5,7,11);sub isp{return if$_[0]==1;for$p(@p){return 1 if $_[0] == $p;return if $_[0]%$p==0}push @p,$_[0];return 1}for(1..10000){isp($_)}for(1..3000){$l=3000-$_;print "l:$l\n";for$s(1..100000){$t=0;$t+=$p[$s+$_]for(0..$l);last if $t>1000000;if(isp($t)){print"$t\n";$f=1}}last if $f}'

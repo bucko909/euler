@@ -1,0 +1,1 @@
+perl -e 'sub bigf{for$v(0..$#{$_[0]}){if($_[0][$v]>=1000){$o=int($_[0][$v]/1000);$_[0][$v+1]+=$o;$_[0][$v]%=1000}}}sub bigm{$n=[map{$_[1]*$_}@{$_[0]}];bigf($n);return$n}for$a(1..99){for$b(1..99){$n=[1];for(1..$b){$n=bigm($n,$a);}$n=join("",@$n);$t=0;$t+=$_ for split//,$n;if($t>$T){$T=$t;print "$a $b $n $t\n"}}}'

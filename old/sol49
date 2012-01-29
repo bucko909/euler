@@ -1,0 +1,1 @@
+perl -e '@p=(2,3,5,7,11);sub isp{return if$_[0]==1;for$p(@p){return 1 if $_[0] == $p;return if $_[0]%$p==0}push @p,$_[0];return 1}for(1..10000){isp($_)}for$pn(0..$#p){@c=grep{/^[$p[$pn]]{4}$/}@p;for(@c){$d=$_-$p[$pn];if($d>0&&isp($_+$d)&&($_+$d)=~/^[$_]{4}$/){print"$p[$pn] $_ ".($_+$d)."\n"}}}'

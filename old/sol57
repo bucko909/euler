@@ -1,0 +1,2 @@
+perl -e 'sub bigf{for$v(0..$#{$_[0]}){if($_[0][$v]>=1000){$o=int($_[0][$v]/1000);$_[0][$v+1]+=$o;$_[0][$v]%=1000}}}sub bigm{$n=[map{$_[1]*$_}@{$_[0]}];bigf($n);return$n}sub biga{$l=@{$_[0]}>@{$_[1]}?@{$_[0]}:@{$_[1]};my$n=[];for(0..$l-1){$n->[$_]=$_[0][$_]+$_[1][$_]}bigf($n);return$n}$a=[1];$b=[1];for(1..1000){$b2=biga($b,$a);$a=biga(bigm($b,2),$a);$b=$b2;print "@$a @$b\n" if length(join("",@$a))>length(join("",@$b))}'|wc -l
+

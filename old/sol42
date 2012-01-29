@@ -1,0 +1,1 @@
+perl -ne 'for(split/[",]+/){next unless$_;@a=split//;$a=0;$a+=ord($_)-ord("A")+1 for@a;$l=sqrt(1+8*$a);print"$_ $a\n" if int($l)==$l && $l%2}' words.txt

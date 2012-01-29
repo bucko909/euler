@@ -1,0 +1,1 @@
+primes 1 10000000|perl -e 'while(<>){chomp;push@p,$_;$p{$_}=1}@f=(200,200);$m=2;while(1){$f[1]++;$i=1;$i*=$p[$_]for@f;if($i>=10**7){$f[0]++;$f[1]=$f[0];last if$p[$f[0]]**2>10**7;next}$tot=$i*(1-1/$p[$f[0]])*(1-1/$p[$f[1]]);%d=();$d{$_}--for(split//,$i);$d{$_}++for(split//,$tot);if(!(grep{$d{$_}}keys%d)&&$i/$tot<$m){$m=$i/$tot;print"$i $tot @f: @p[@f]\n"}}'|tail -n 1|cut -d' ' -f1

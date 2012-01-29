@@ -1,0 +1,1 @@
+perl -e 'sub t{return $_[0]*($_[0]+1)/2}sub p{return $_[0]*(3*$_[0]-1)/2}sub h{return $_[0]*(2*$_[0]-1)}sub ist{$l=sqrt(1+8*$_[0]);return ($l-1)/2 if int($l)==$l && $l%2;return}sub isp{$l=sqrt(1+24*$_[0]);return (1 + $l)/6 if int($l) == $l && $l%6 == 5}for(1..100000000){$h=h($_);$t=t($_);$p=p($_);$ip = isp($h); $it = ist($h);print"$_ $h $p $t $ip $it\n" if ist($h) && isp($h)}'

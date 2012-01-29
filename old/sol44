@@ -1,0 +1,51 @@
+#!/usr/bin/perl
+sub p {
+	$c[$_[0]] ||= $_[0]*(3*$_[0]-1)/2;
+	return$c[$_[0]];
+}
+sub x {
+	$c1{$_[0]} ||= (1+sqrt(1+24*$_[0]))/6;
+	return$c1{$_[0]};
+}
+sub t {
+	return $c{$_[0]} if $c{$_[0]};
+	my $i = sqrt(1+24*$_[0]);
+	$c{$_[0]} = int($i) == $i && $i%6 == 5;
+	return $c{$_[0]};
+}
+$j=1;
+$i=1;
+$l=1;
+while(1){
+	$j++;
+	if($j>=$l){
+		$i++;
+		$j=int(x(p($i+1)-&p($i)));
+		$l = $i;
+		if ($D) {
+			my ($j1, $j2) = (0, 0);
+			$j1 = $i-int((6*$i-1+sqrt((6*$i-1)**2+24*$D))/6);
+			$j2 = $i+int((6*$i-1-sqrt((6*$i-1)**2+24*$D))/6);
+			$j = $j1 > $j2 ? $j1 : $j2;
+		}
+		if($j<1) { $j = 1; }
+		last if($j==$i&&$i>4);
+		if ($i % 1000 == 0) {
+			print "$i $j ".($i-$j)."\n";
+		}
+	}
+	my $d = p($i) - p($j);
+	next if $D && $d > $D;
+	if(t($d)) {
+		if(t(p($i)+p($j))) {
+			$D = $d;
+			print "++$i $j $d\n";
+			print "++$i $j $d\n";
+			print "++$i $j $d\n";
+			print "++$i $j $d\n";
+			print "++$i $j $d\n";
+		} else {
+			#print "--$i $j\n";
+		}
+	}
+}

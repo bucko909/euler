@@ -1,0 +1,1 @@
+perl -e 'for$v(1..9999){$v2=$v;$c=0;for(1..50){$c++;$v=$v+reverse$v;$t=substr($v,0,int(length($v)/2));$t.=reverse(substr($v,0,length($v)-length($t)));if($t==$v){print"Pal $v $v2 $t $c\n";last}}}'|less

@@ -1,0 +1,1 @@
+perl -e 'sub d{$a=$_[0];for(0..length($_[0])){$i=length($_[0])-$_;$s=0;$s+=9*10**($_-1)*$_ for(1..$i);if($a>$s){$a-=$s+1;last}}$s=$i+1;$c=10**$i+int($a/$s);$r=$a%$s;@b=split//,$c;return$b[$r]}sub g{$r="";for(1..$_[0]){$r.=$_}return split //,$r}print "".(d(1)*d(10)*d(100)*d(1000)*d(10000)*d(100000)*d(1000000))."\n"'

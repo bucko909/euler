@@ -1,0 +1,1 @@
+primes 1 1000000|perl -e '@p=();sub isp{return if$_[0]==1;for$p(@p){return 1 if $_[0] == $p;return if $_[0]%$p==0}push@p,$_[0];return 1}while(<>){chomp;push@p,$_}$p{$_}=1 for(@p);for$p(@p){%d=();$d{$_}=1 for split//,$p;for$r(keys%d){$c=0;for$n(0..9){$t=$p;$t=~s/$r/$n/g;$c++if$p{$t}}print"$c:$r:$p\n"if$c>6}}'

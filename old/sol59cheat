@@ -1,0 +1,1 @@
+cat cipher1.txt | perl -e 'open WORDS,"/usr/share/dict/words";while(<WORDS>){chomp;push@w,$_}close WORDS;@m=split/,/,<>;for$a(97,103,104,109,111,118,119,120,122){for$b(97,99,104,109,111,118..122){for$c(ord("a")..ord("z")){@k=($a,$b,$c);$s="";$st=0;for(0..$#m){$s.=chr($m[$_]^$k[$_%3]);$st+=$m[$_]^$k[$_%3]}$k = chr($a).chr($b).chr($c); print "@k:$k:$st:$s\n"}}}'|less

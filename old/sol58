@@ -1,0 +1,1 @@
+primes 1 5000000000|perl -e 'sub cp{while($mcp<$_[0]){$mcp=<>;chomp($mcp)}return $mcp==$_[0]}$pc=0;$t=1;for$n(1..100999){$l=$n*2+1;@a=();$c=$l**2;for(0..3){my$t=$c-(3-$_)*$n*2;if(cp($t)){$pc++;print"pp:$t\n"}else{print"np:$t\n"}}$t+=4;print"$l:r:$pc/$t=".($pc/$t)."\n";last if$pc<$t/10}'

@@ -1,0 +1,1 @@
+perl -e 'for(0..100000){$c=$_**3;push@c,$c;$c{$c}=1;@d=split//,$c;$cs=0;$cs+=$_ for(@d);$cs{$cs}||=[];push@{$cs{$cs}},$c}for$cs(sort{$cs{$a}[0]<=>$cs{$b}[0]}keys%cs){print"$cs\n";%r=();for$c(@{$cs{$cs}}){@d=((0)x10);$d[$_]++for(split//,$c);$r{"@d"}||=[];push@{$r{"@d"}},$c}for(keys%r){$c=@{$r{$_}};@s=map{sprintf("%015i",$_)}sort@{$r{$_}};print"@s\n"if$c==5}}'|sort|less

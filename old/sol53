@@ -1,0 +1,1 @@
+perl -e 'for$n(1..100){$l=int($n/2);$s=0;for$r(0..$l){$t=1;for(1..$n-$r){$t*=($r+$_)/($n-$r+1-$_);last if$t>1000000}if($t>1000000){$s=1;$r1=$r;last}}if($s){print"$n $r1 $l\n";$c+=2*($l-$r1+1);$c--if$n%2==0}}print"$c\n"'

@@ -1,0 +1,1 @@
+perl -e '@p=(2);sub isp{return if$_[0]==1;for$p(@p){return 1 if $_[0] == $p;return if $_[0]%$p==0}push @p,$_[0];return 1}for(1..1000000000){$t=$_*2+1;next if isp($t);$f=0;for$s(1..int(sqrt($t/2))){$p=$t-2*$s*$s;if(isp($p)){$f=1;last}}unless($f){print"$t\n";}}'

@@ -1,0 +1,1 @@
+(echo 0;perl -e '@t=(1,2,3,5,7,11,13,17);sub p{my($a,@a)=@_;$l=length$a;if($l>3){if(substr($a,$l-3,3)%$t[$l-3]){return}}if(@a){for my$b(0..$#a){p($a.$a[$b],@a[0..($b-1)],@a[$b+1..$#a])}}else{print"$a+\n"}}p("",0..9)';echo p)|dc
